@@ -1,11 +1,31 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, Platform, FlatList } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+
+const FlatListBasics = () => {
+  return (
+    <FlatList
+      data={[
+        { key: 'Devin' },
+        { key: 'Dan' },
+        { key: 'Dominic' },
+        { key: 'Jackson' },
+        { key: 'James' },
+        { key: 'Joel' },
+        { key: 'John' },
+        { key: 'Jillian' },
+        { key: 'Jimmy' },
+        { key: 'Julie' },
+      ]}
+      renderItem={({ item }) => <ThemedText>{item.key}</ThemedText>}
+    />
+  );
+}
 
 export default function TabTwoScreen() {
   return (
@@ -15,6 +35,7 @@ export default function TabTwoScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Profile</ThemedText>
       </ThemedView>
+      <FlatListBasics />
       <ThemedText>This app includes example code to help you get started.</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
